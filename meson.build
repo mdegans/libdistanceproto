@@ -1,0 +1,9 @@
+project('distanceproto', ['c', 'cpp'],
+  version: run_command(
+    'head', '-n', '1', files('VERSION'),
+  ).stdout().strip(),
+  meson_version: '>= 0.47.0',
+  license: 'LGPL',
+)
+
+subdir('src')
