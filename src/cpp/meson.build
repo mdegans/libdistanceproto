@@ -12,17 +12,9 @@ libdistanceproto = custom_target(proto_name,
     '--cpp_out', meson.current_build_dir(),
     infile_name,
   ],
-  install_dir: meson.project_name(),
+  install_dir: [false, get_option('includedir')],
   install: true,
 )
-
-# this doesn't work so not sure how to fix it for now you can find the header
-# in the build dir
-# header = join_paths(meson.current_build_dir(), output[1])
-# install_headers(
-#   header,
-#   subdir: meson.project_name(),
-# )
 
 libdistanceproto_lib = library(meson.project_name(), libdistanceproto,
   version: meson.project_version(),
