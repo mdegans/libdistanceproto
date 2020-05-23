@@ -38,6 +38,10 @@ message Frame {
    * People in this video frame.
    */
   repeated Person people = 3;
+  /**
+   * Sum of danger from all people.
+   */
+  float sum_danger = 4;
 }
 
 /**
