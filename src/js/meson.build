@@ -11,7 +11,7 @@ libdistanceproto_py = custom_target(proto_name,
     '--js_out', meson.current_build_dir(),
     infile_name,
   ],
-  install_dir: join_paths(meson.project_name(), 'js'),
+  install_dir: join_paths(get_option('datadir'), meson.project_name(), 'js'),
   install: true,
 )
 
