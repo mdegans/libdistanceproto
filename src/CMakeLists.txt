@@ -1,0 +1,16 @@
+# Yeah, this is easier than Meson for sure for protobuf
+INCLUDE(FindProtobuf)
+FIND_PACKAGE(Protobuf REQUIRED)
+
+INCLUDE_DIRECTORIES(${PROTOBUF_INCLUDE_DIR})
+INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR})
+
+PROTOBUF_GENERATE_CPP(PROTO_SRC PROTO_HEADER distance.proto)
+PROTOBUF_GENERATE_PYTHON(PROTO_PY distance.proto)
+
+ADD_LIBRARY(distanceproto ${PROTO_HEADER} ${PROTO_SRC})
+
+INSTALL(
+    TARGETS distanceproto
+    DESTINATION lib
+)
