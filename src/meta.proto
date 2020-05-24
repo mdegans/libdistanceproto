@@ -1,4 +1,4 @@
-/* nvdistance.vala
+/* meta.proto
  *
  * Copyright 2020 Michael de Gans <47511965+mdegans@users.noreply.github.com>
  *
@@ -22,6 +22,9 @@
  */
 
 syntax = "proto3";
+
+package distanceproto;
+
 /**
  * Represents a video frame.
  */
