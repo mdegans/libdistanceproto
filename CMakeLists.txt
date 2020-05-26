@@ -1,8 +1,5 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
 
-PROJECT(libdistanceproto CXX)
-set(CMAKE_CXX_STANDARD 11)
-
-INCLUDE(FindProtobuf)
+PROJECT(distanceproto CXX)
 
 ADD_SUBDIRECTORY(src)
