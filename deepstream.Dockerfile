@@ -17,7 +17,6 @@ COPY LICENSE VERSION README.md CMakeLists.txt ./
 COPY src ./src/
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        build-essential \
         cmake \
         libprotobuf-dev \
         ninja-build \
@@ -27,7 +26,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && ninja && ninja install \
     && cd .. && rm -rf build \
     && apt-get purge -y --autoremove \
-        build-essential \
         cmake \
         ninja-build \
         protobuf-compiler \
