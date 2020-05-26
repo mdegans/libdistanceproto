@@ -1,1 +1,11 @@
-TODO(mdegans): pkgconfig for this
+prefix=@CMAKE_INSTALL_PREFIX@
+libdir=${prefix}/lib/@CMAKE_CXX_LIBRARY_ARCHITECTURE@
+includedir=${prefix}/include/
+
+Name: @PROJECT_NAME@
+Description: A simple library to build CUDA DeepStream filters.
+URL: https://github.com/mdegans/libdsfilter
+Version: @DISTANCEPROTO_VERSION_STRING@
+Requires: protobuf >= 3.0.0
+Libs: -L${libdir} -l@PROJECT_NAME@
+Cflags:-I${includedir}
