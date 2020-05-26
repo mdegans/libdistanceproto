@@ -3,8 +3,8 @@ libdir=${prefix}/lib/@CMAKE_CXX_LIBRARY_ARCHITECTURE@
 includedir=${prefix}/include/
 
 Name: @PROJECT_NAME@
-Description: A simple library to build CUDA DeepStream filters.
-URL: https://github.com/mdegans/libdsfilter
+Description: Common social distancing protobuf metadata format.
+URL: https://github.com/mdegans/libdistanceproto
 Version: @DISTANCEPROTO_VERSION_STRING@
 Requires: protobuf >= 3.0.0
 Libs: -L${libdir} -l@PROJECT_NAME@
