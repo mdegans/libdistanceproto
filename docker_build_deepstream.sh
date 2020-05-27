@@ -12,6 +12,12 @@ readonly DEEPSTREAM_TAG="5.0-dp-20.04-devel"
 
 # https://stackoverflow.com/questions/59895/how-to-get-the-source-directory-of-a-bash-script-from-within-the-script-itself
 readonly THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+TAG_SUFFIX=$(git rev-parse --abbrev-ref HEAD)
+if [[ $TAG_SUFFIX == "master" ]]; then
+    TAG_SUFFIX="deepstream"
+else
+    TAG_SUFFIX="deepstream-$TAG_SUFFIX"
+fi
 readonly DOCKERFILE="$THIS_DIR/$DOCKERFILE_BASENAME"
 readonly VERSION=$(head -n 1 $THIS_DIR/VERSION)
 readonly TAG_BASE="$AUTHOR/$PROJ_NAME"
@@ -24,4 +30,4 @@ docker build --rm -f $DOCKERFILE \
     --build-arg VERSION="${VERSION}" \
     -t $TAG_FULL \
     $THIS_DIR $@
-docker tag "$TAG_FULL" "$TAG_BASE:deepstream"
+docker tag "$TAG_FULL" "$TAG_BASE:$TAG_SUFFIX"
