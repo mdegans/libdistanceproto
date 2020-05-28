@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && mkdir build && cd build \
     && cmake -GNinja -DCMAKE_INSTALL_PREFIX:PATH=${PREFIX} .. \
     && ninja && ninja install \
+    && ldconfig \
     && cd .. && rm -rf build \
     && apt-get purge -y --autoremove \
         build-essential \
