@@ -1,4 +1,4 @@
-/* nvdistance.vala
+/* meta.proto
  *
  * Copyright 2020 Michael de Gans <47511965+mdegans@users.noreply.github.com>
  *
@@ -22,6 +22,24 @@
  */
 
 syntax = "proto3";
+
+package distanceproto;
+
+/**
+ * Represents a batch of frames.
+ */
+message Batch {
+  /**
+   * The maximum number of frames in a batch.
+   * (batch-size)
+   */
+  uint32 max_frames = 1;
+  /**
+   * The frames in this batch.
+   */
+  repeated Frame frames = 2;
+}
+
 /**
  * Represents a video frame.
  */
@@ -38,6 +56,10 @@ message Frame {
    * People in this video frame.
    */
   repeated Person people = 3;
+  /**
+   * Sum of danger from all people.
+   */
+  float sum_danger = 4;
 }
 
 /**
