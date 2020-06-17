@@ -1,11 +1,11 @@
-ARG DEEPSTREAM_TAG="5.0-dp-20.04-devel"
-FROM nvcr.io/nvidia/deepstream${DEEPSTREAM_TAG}
-
+ARG BASE_IMAGE="use docker_build_deepstream.sh to build"
 ARG PREFIX="/usr/local"
 ARG SRC_DIR="${PREFIX}/src/libdistanceproto/"
 ARG VERSION="UNSET (use docker_build_ubuntu.sh to build)"
 # dammit, why isn't this the default in docker
 ARG DEBIAN_FRONTEND=noninteractive
+
+FROM ${BASE_IMAGE}
 
 # fix deepstream permissions and ldconfig
 RUN chmod -R o-w /opt/nvidia/deepstream/deepstream-5.0/ \

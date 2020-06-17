@@ -24,11 +24,11 @@ if [[ "$(arch)" == "aarch64" ]]; then
     # Please, Nvidia, be consistent.
     # this whole file shouldn't be necessary.
     readonly TAG_SUFFIX="${TAG_SUFFIX}-tegra"
-    readonly DEEPSTREAM_TAG="-l4t:5.0-dp-20.04-samples"
+    readonly BASE_IMAGE="registry.hub.docker.com/mdegans/deepstream:aarch64-samples"
     readonly VERSION="${VERSION}-ds-tegra"
 else
     readonly TAG_SUFFIX="${TAG_SUFFIX}-x86"
-    readonly DEEPSTREAM_TAG=":5.0-dp-20.04-devel"
+    readonly DEEPSTREAM_TAG="nvcr.io/nvidia/deepstream-l4t:5.0-dp-20.04-devel"
     readonly VERSION="${VERSION}-ds-x86"
 fi
 
