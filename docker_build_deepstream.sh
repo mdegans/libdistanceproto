@@ -28,7 +28,7 @@ if [[ "$(arch)" == "aarch64" ]]; then
     readonly VERSION="${VERSION}-ds-tegra"
 else
     readonly TAG_SUFFIX="${TAG_SUFFIX}-x86"
-    readonly DEEPSTREAM_TAG="nvcr.io/nvidia/deepstream-l4t:5.0-dp-20.04-devel"
+    readonly BASE_IMAGE="nvcr.io/nvidia/deepstream-l4t:5.0-dp-20.04-devel"
     readonly VERSION="${VERSION}-ds-x86"
 fi
 
@@ -40,7 +40,7 @@ readonly TAG_FULL="$TAG_BASE:$VERSION"
 echo "Building $TAG_FULL from $DOCKERFILE"
 
 docker build --rm -f $DOCKERFILE \
-    --build-arg DEEPSTREAM_TAG="${DEEPSTREAM_TAG}" \
+    --build-arg BASE_IMAGE="${BASE_IMAGE}" \
     --build-arg VERSION="${VERSION}" \
     -t $TAG_FULL \
     $THIS_DIR $@
