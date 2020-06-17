@@ -25,7 +25,7 @@ if [[ "$(arch)" == "aarch64" ]]; then
     # this whole file shouldn't be necessary.
     readonly TAG_SUFFIX="${TAG_SUFFIX}-tegra"
     readonly DEEPSTREAM_TAG="-l4t:5.0-dp-20.04-samples"
-    readonly VERSION="${VERSION}-tegra"
+    readonly VERSION="${VERSION}-ds-tegra"
 else
     readonly TAG_SUFFIX="${TAG_SUFFIX}"
     readonly DEEPSTREAM_TAG=":5.0-dp-20.04-devel"
