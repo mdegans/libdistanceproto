@@ -16,7 +16,14 @@ if [[ $TAG_SUFFIX == "master" ]]; then
     TAG_SUFFIX="latest"
 fi
 readonly DOCKERFILE="$THIS_DIR/$DOCKERFILE_BASENAME"
-readonly VERSION=$(head -n 1 $THIS_DIR/VERSION)
+VERSION=$(head -n 1 $THIS_DIR/VERSION)
+
+if [[ "$(arch)" == "aarch64" ]]; then
+    readonly VERSION="${VERSION}-tegra"
+else
+    readonly VERSION="${VERSION}"
+fi
+
 readonly TAG_BASE="$AUTHOR/$PROJ_NAME"
 readonly TAG_FULL="$TAG_BASE:$VERSION"
 
