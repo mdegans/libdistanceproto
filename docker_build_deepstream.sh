@@ -8,7 +8,13 @@ set -ex
 readonly AUTHOR="mdegans"
 readonly PROJ_NAME="libdistanceproto"
 readonly DOCKERFILE_BASENAME="deepstream.Dockerfile"
-readonly DEEPSTREAM_TAG="5.0-dp-20.04-devel"
+if [[ "$(arch)" == "aarch64" ]]; then
+    # Please, Nvidia, be consistent.
+    # this whole file shouldn't be necessary.
+    readonly DEEPSTREAM_TAG="-l4t:5.0-dp-20.04-samples"
+else
+    readonly DEEPSTREAM_TAG=":5.0-dp-20.04-devel"
+fi
 
 # https://stackoverflow.com/questions/59895/how-to-get-the-source-directory-of-a-bash-script-from-within-the-script-itself
 readonly THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"

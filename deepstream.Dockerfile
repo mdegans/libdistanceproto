@@ -1,5 +1,5 @@
 ARG DEEPSTREAM_TAG="5.0-dp-20.04-devel"
-FROM nvcr.io/nvidia/deepstream:${DEEPSTREAM_TAG}
+FROM nvcr.io/nvidia/deepstream${DEEPSTREAM_TAG}
 
 ARG PREFIX="/usr/local"
 ARG SRC_DIR="${PREFIX}/src/libdistanceproto/"
@@ -17,6 +17,7 @@ COPY LICENSE VERSION README.md CMakeLists.txt ./
 COPY src ./src/
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
+        build-essential \
         cmake \
         libprotobuf-dev \
         ninja-build \
