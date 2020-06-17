@@ -27,7 +27,7 @@ if [[ "$(arch)" == "aarch64" ]]; then
     readonly DEEPSTREAM_TAG="-l4t:5.0-dp-20.04-samples"
     readonly VERSION="${VERSION}-ds-tegra"
 else
-    readonly TAG_SUFFIX="${TAG_SUFFIX}"
+    readonly TAG_SUFFIX="${TAG_SUFFIX}-x86"
     readonly DEEPSTREAM_TAG=":5.0-dp-20.04-devel"
     readonly VERSION="${VERSION}-ds-x86"
 fi

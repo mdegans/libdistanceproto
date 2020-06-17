@@ -20,8 +20,10 @@ VERSION=$(head -n 1 $THIS_DIR/VERSION)
 
 if [[ "$(arch)" == "aarch64" ]]; then
     readonly VERSION="${VERSION}-tegra"
+    readonly TAG_SUFFIX="${TAG_SUFFIX}-tegra"
 else
-    readonly VERSION="${VERSION}"
+    readonly VERSION="${VERSION}-x86"
+    readonly TAG_SUFFIX="${TAG_SUFFIX}-x86"
 fi
 
 readonly TAG_BASE="$AUTHOR/$PROJ_NAME"
