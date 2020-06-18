@@ -11,7 +11,7 @@ readonly DOCKERFILE_BASENAME="ubuntu.Dockerfile"
 
 # change this if you want to override the architecture (cross build)
 # this is untested and unsupported
-readonly ARCH = "$(arch)"
+readonly ARCH="$(arch)"
 
 # https://stackoverflow.com/questions/59895/how-to-get-the-source-directory-of-a-bash-script-from-within-the-script-itself
 readonly THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
