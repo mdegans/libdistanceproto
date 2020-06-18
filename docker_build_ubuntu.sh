@@ -30,7 +30,7 @@ readonly TAG_FULL="$TAG_BASE:$VERSION"
 
 echo "Building $TAG_FULL from $DOCKERFILE"
 
-docker build --rm -f $DOCKERFILE \
+docker build --pull --rm -f $DOCKERFILE \
     --build-arg VERSION="${VERSION}" \
     -t $TAG_FULL \
     $THIS_DIR $@
