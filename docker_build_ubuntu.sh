@@ -9,6 +9,10 @@ readonly AUTHOR="mdegans"
 readonly PROJ_NAME="libdistanceproto"
 readonly DOCKERFILE_BASENAME="ubuntu.Dockerfile"
 
+# change this if you want to override the architecture (cross build)
+# this is untested and unsupported
+readonly ARCH = "$(arch)"
+
 # https://stackoverflow.com/questions/59895/how-to-get-the-source-directory-of-a-bash-script-from-within-the-script-itself
 readonly THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 TAG_SUFFIX=$(git rev-parse --abbrev-ref HEAD)
@@ -18,13 +22,8 @@ fi
 readonly DOCKERFILE="$THIS_DIR/$DOCKERFILE_BASENAME"
 VERSION=$(head -n 1 $THIS_DIR/VERSION)
 
-if [[ "$(arch)" == "aarch64" ]]; then
-    readonly VERSION="${VERSION}-tegra"
-    readonly TAG_SUFFIX="${TAG_SUFFIX}-tegra"
-else
-    readonly VERSION="${VERSION}-x86"
-    readonly TAG_SUFFIX="${TAG_SUFFIX}-x86"
-fi
+readonly VERSION="${VERSION}-$ARCH"
+readonly TAG_SUFFIX="${TAG_SUFFIX}-$ARCH"
 
 readonly TAG_BASE="$AUTHOR/$PROJ_NAME"
 readonly TAG_FULL="$TAG_BASE:$VERSION"
