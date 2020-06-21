@@ -82,7 +82,7 @@ message Person {
    */
   int32 uid = 1;
   /**
-   * Whether this person's danger is > 0.0
+   * Whether this person's danger is > 1.0 (deprecated)
    */
   bool is_danger = 2;
   /**
