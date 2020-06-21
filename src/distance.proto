@@ -60,6 +60,17 @@ message Frame {
    * Sum of danger from all people.
    */
   float sum_danger = 4;
+  /**
+   * Frame dts timestamp, if any.
+   * If deepstream, this is frame_meta.ntp_timestamp.
+   * (in nanoseconds, like GstClockTime)
+   */
+  uint64 dts = 5;
+  /**
+   * Frame presentation timestamp, if any.
+   * (in nanoseconds, like GstClockTime)
+   */
+  uint64 pts = 6;
 }
 
 /**
