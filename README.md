@@ -11,21 +11,44 @@ You can use protoc or protoc-c as usual or cmake to build and link libraries.
 Protobuf libraries and protobuf compilers. Everything shoud be platform agnistic
 so the library should build on windows, mac, etc.
 
-Ubuntu/Debian build dependency install:
+Protobuf related dependencies:
 ```
-sudo apt install libprotobuf-dev libprotobuf-c-dev protobuf-compiler protobuf-c-compiler cmake ninja-build
+sudo apt install libprotobuf-dev libprotobuf-c-dev protobuf-compiler protobuf-c-compiler
 ```
 
-ninja-build is optional. You can use make instead as usual.
+A build system such as cmake:
+```
+sudo apt install cmake ninja-build
+```
+(or meson)
+```
+sudo apt install meson ninja-build
+```
+(or if the meson version is not new enough)
+```
+sudo apt install ninja-build
+pip3 install --upgrade meson
+```
+
+ninja-build is optional for cmake. You can use make instead as usual.
 
 ## building
 
-More or less the same as with cmake and make only "meson" and "ninja" instead.
+Cmake (make can be used instaed of ninja as usual)
 
 ```bash
 mkdir build
 cd build
 cmake -GNinja ..
+ninja
+(sudo) ninja install
+```
+Meson
+
+```bash
+mkdir builddir
+cd builddir
+meson ..
 ninja
 (sudo) ninja install
 ```
