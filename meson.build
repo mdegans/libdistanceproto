@@ -11,7 +11,7 @@ project('distanceproto', ['cpp'],
   ]
 )
 
-package_description = 'Social distancing protobuf library.'
+package_description = 'Social distancing protobuf metadata format.'
 package_version = meson.project_version()
 package_author = 'Michael de Gans'
 package_email = 'michael.john.degans@gmail.com'

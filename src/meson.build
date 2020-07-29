@@ -1,4 +1,4 @@
-protobuf = dependency('protobuf', version: '3.0.0')
+protobuf = dependency('protobuf', version: '>=3.0.0')
 protoc = find_program('protoc')
 
 # many thanks to @marcelhollerbach for his solution.
@@ -29,6 +29,7 @@ distance_pb_h = custom_target('distance_pb_h',
 )
 
 libdistanceproto = library(meson.project_name(), distance_pb_cc,
+  version: meson.project_version(),
   dependencies: [protobuf],
   install: true,
 )
@@ -42,4 +43,7 @@ distanceproto_dep = declare_dependency(
 pkg = import('pkgconfig')
 distanceproto_pc = pkg.generate(libdistanceproto,
   description: package_description,
+  url: package_uri,
+  # for consistency with existing cmake install:
+  install_dir: get_option('datadir') / 'pkgconfig'
 )
