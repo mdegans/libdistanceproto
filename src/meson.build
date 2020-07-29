@@ -35,6 +35,7 @@ libdistanceproto = library(meson.project_name(), distance_pb_cc,
 
 distanceproto_dep = declare_dependency(
   link_with: libdistanceproto,
+  include_directories: [include_directories('.')],
   dependencies: protobuf,
 )
 
