@@ -3,9 +3,9 @@ libdir=${prefix}/lib/@CMAKE_CXX_LIBRARY_ARCHITECTURE@
 includedir=${prefix}/include/
 
 Name: @PROJECT_NAME@
-Description: Common social distancing protobuf metadata format.
+Description: Social distancing protobuf metadata format.
 URL: https://github.com/mdegans/libdistanceproto
 Version: @DISTANCEPROTO_VERSION_STRING@
-Requires: protobuf >= 3.0.0
+Requires.private: protobuf >= 3.0.0
 Libs: -L${libdir} -l@PROJECT_NAME@
 Cflags:-I${includedir}
